@@ -12,58 +12,65 @@ function getPlayerChoice() {
     do {
         let player_choice = prompt("choose your weapon(rock/paper/scissors):").toLowerCase();
         if (player_choice == "rock" || player_choice == "paper" || player_choice == "scissors") {
-            x=1;
-            return player_choice;
+            switch (player_choice) {
+                case "rock": player_choice = 0;
+                    break;
+                case "paper": player_choice = 1;
+                    break;
+                case "scissors": player_choice = 2;
+                    break;
+                default:
+            }
+                x=1;
+             return player_choice;
         } else {
             alert("wrong weapon try again");
-            console.log(x);
         }
     } while (x==0);
 }
 
-function reverseValue(computerChoice, playerChoice) {
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice();
+function reverseValue(reverseComputer, reversePlayer) {
 
-    if (playerChoice==0 && computerChoice==2) {
-        return computerChoice = -computerChoice;
-    } else if (computerChoice==0 && playerChoice==2) {
-        return playerChoice = -playerChoice;
-    }
+
+    console.log(reverseComputer);
 }
 
-function computerChoicetoString(computerChoice) {
-    computerChoice = getComputerChoice();
+function computerChoiceToString(computerString) {
 
     let computerChoice_string = "";
-    switch (computerChoice) {
+    switch (computerString) {
         case 0: return computerChoice_string = "rock";
             break;
         case 1: return computerChoice_string = "paper";
             break;
         case 2: return computerChoice_string = "scissors";
             break;
+        case -2: return computerChoice_string = "scissors";
+            break;
         default:
     }
 }
+
 
 function playRound(computerChoice, playerChoice) {
 
     computerChoice = getComputerChoice();
     playerChoice = getPlayerChoice();
 
-    switch (playerChoice) {
-        case "rock": playerChoice = 0;
-        break;
-        case "paper": playerChoice = 1;
-        break;
-        case "scissors": playerChoice = 2;
-        break;
-        default:
-            console.log("this is default")
+
+    if (playerChoice==0 && computerChoice==2) {
+        computerChoice = -computerChoice;
+    } else if (computerChoice==0 && playerChoice==2) {
+        playerChoice = -playerChoice;
     }
 
-computerChoicetoString(computerChoice);
-reverseValue(computerChoice, playerChoice);
+
+    if (playerChoice==computerChoice) {
+        document.getElementById("result").innerHTML = "Its a tie!"
+    } else if(playerChoice>computerChoice) {
+        document.getElementById("result").innerHTML = "Player wins! Computer choose: " + computerChoiceToString(computerChoice);
+    } else {
+        document.getElementById("result").innerHTML = "Computer wins! It choose: " + computerChoiceToString(computerChoice);
+    }
 
 }
