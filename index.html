@@ -6,13 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="scripts/scripts.js"></script>
+
 </head>
 <body>
-<button onclick="playRound()", ondrag="getPlayerChoice()">PLAY!</button>
+<input type="text" id="player_input">
+<button id="play_button">PLAY!</button>
 <div>
     <p id="result"></p>
-    <p id="score"></p>
+    <div id="score">
+        <p>Ties: <span id="tie"></span></p>
+        <p>Computer score: <span id="computer_score"></span></p>
+        <p>Player score: <span id="player_score"></span></p>
+    </div>
 </div>
+<script src="scripts/scripts.js"></script>
 </body>
 </html>
