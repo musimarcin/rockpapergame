@@ -12,7 +12,7 @@ function getComputerChoice() {
 function getPlayerChoice() {
     //let player_choice = prompt("choose your weapon(rock/paper/scissors):").toLowerCase();
     let player_choice = document.getElementById("player_input").value.toString().toLowerCase();
-
+//convert players choice to number to compare later
         if (player_choice == "rock" || player_choice == "paper" || player_choice == "scissors") {
             switch (player_choice) {
                 case "rock": player_choice = 0;
