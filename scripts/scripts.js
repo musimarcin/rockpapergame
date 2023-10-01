@@ -26,6 +26,8 @@ function getPlayerChoice() {
              return player_choice;
         } else {
             alert("wrong weapon try again");
+            player_choice = NaN ;
+            return player_choice;
         }
 }
 
@@ -64,17 +66,20 @@ function playRound(computerChoice, playerChoice) {
     let computer_wins = 0;
     let player_wins = 0;
 
-    if (playerChoice==computerChoice) {
-        tie++;
-        document.getElementById("result").innerHTML = "Its a tie!"
-    } else if(playerChoice>computerChoice) {
-        player_wins++;
-        document.getElementById("result").innerHTML = "Player wins! Computer choose: " + computerChoiceToString(computerChoice);
-    } else {
-        computer_wins++;
-        document.getElementById("result").innerHTML = "Computer wins! It choose: " + computerChoiceToString(computerChoice);
+    if (!isNaN(playerChoice)) {
+
+        if (playerChoice == computerChoice) {
+            tie++;
+            document.getElementById("result").innerHTML = "Its a tie!"
+        } else if (playerChoice > computerChoice) {
+            player_wins++;
+            document.getElementById("result").innerHTML = "Player wins! Computer choose: " + computerChoiceToString(computerChoice);
+        } else {
+            computer_wins++;
+            document.getElementById("result").innerHTML = "Computer wins! It choose: " + computerChoiceToString(computerChoice);
+        }
+        return [tie, computer_wins, player_wins];
     }
-    return [tie, computer_wins, player_wins];
 }
 
 function countScore() {
@@ -107,6 +112,4 @@ function countScore() {
 }
 
 const btn = document.getElementById("play_button");
-btn.addEventListener("click", getPlayerChoice);
 btn.addEventListener("click", playRound);
-btn.addEventListener("click", countScore);
