@@ -7,18 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Scissors Paper Game</title>
     <script src="scripts/scripts.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
 
 </head>
 <body>
-<input type="text" id="player_input">
-<button id="play_button">PLAY!</button>
-<div>
-    <p id="result"></p>
-    <div id="score">
-        <p>Ties: <span id="tie"></span></p>
-        <p>Computer score: <span id="computer_score"></span></p>
-        <p>Player score: <span id="player_score"></span></p>
+<div class="weapon-choice">
+    <input id="0" type="image" src="img/rock.png">
+    <input id="1" type="image" src="img/paper.png">
+    <input id="2" type="image" src="img/scissors.png">
+</div>
+<div class="score">
+    <div class="result">
+        <img src="img/win.png">
+        <div id="player_score"></div>
     </div>
+        <div class="result">
+        <img src="img/tie.png">
+        <div id="tie"></div>
+    </div>
+        <div class="result">
+        <img src="img/lose.png">
+        <div id="computer_score"></div>
+    </div>
+</div>
+<div id="text">
+
 </div>
 </body>
 </html>
